@@ -65,7 +65,7 @@ class MainWindow(QtGui.QMainWindow):
         self.view = QtGui.QGraphicsView()
         self.view.setToolTip(u'语法说明：\n1.每行输入代表一个信号\n2.每个信号的输入格式为“信号名(信号属性):信号波形描述”\n3.信号属性各个属性使用英文逗号隔开，属性无先后顺序，信号属性可以为空，但是括号必须保留，此时信号为非同步普通信号\n\
 4.当属性中包含“clk”时表示当前信号为一个时钟信号，否则为普通信号\n5.时钟信号的表示方式为“时钟名(clk,其他属性):时钟频率”,如：\n\tclk(clk,global):50MHz\n\tglobal属性指示当前时钟信号为全局时钟，即坐标轴一个格代表\
-该时钟信号的半个周期\n6.普通信号分为同步信号和非同步信号，同步信号需指定同步时钟，其波形描述中每个符号对应该时钟一个周期；非同步信号波形描述中每个符号对应坐标轴的一格\n7.同步信号的表示方式为“信号名(syn:\
+该时钟信号的半个周期\n6.普通信号分为同步信号和非同步信号，同步信号需指定同步时钟，其波形描述中每个符号对应该时钟一个周期；非同步信号波形描述中每个符号对应坐标轴的一格\n7.同步信号的表示方式为“信号名(s:\
 同步时钟名称,其他属性):信号波形描述”\n8.所有信号都有上升时间及下降时间两个属性,分别用rt和ft表示，单位为ns，若不写则默认为0,如:\n\tclk(clk,rt:1):50MHz\n\tsignal(rt:2,ft:1):-_-XZZZ\n9.普通信号波形描述符号：\n\t-\t高电平\n\
 \t_\t低电平\n\tX\t未知信号\n\tZ\t高阻信号\n\t=\t信号向量\n\t<\t信号向量左边缘\n\t>\t信号向量右边缘\n\t~\t省略号\n10.可以使用*绘制重复波形,如:\n\t(-_-)*5\n\t=*10')
         self.plain = QtGui.QPlainTextEdit()
@@ -81,7 +81,7 @@ class MainWindow(QtGui.QMainWindow):
         self.scene = QtGui.QGraphicsScene(0, 0, 800, 400)
         # self.drawScale()
         text = self.scene.addText(u"欢迎测试char2wave!\n当前版本：\n\t1.可绘制时钟信号、单个信号及信号向量\n\t2.可定义全局时钟信号以改变单位时间\n\t3.可将输入保存为c2w格式文件，可载入已保存c2w文件\n\
-暂时不能：\n\t1.让信号向量显示具体值\n\t2.对信号进行标注\n\t3.将绘制出的波形保存为图片\n\n\n无论何时，你都可以将鼠标移到这里查看详细语法", defaultFont)
+暂时不能：\n\t1.让信号向量显示具体值\n\t2.对信号进行标注\n\t3.将绘制出的波形保存为图片\n\t4.固定信号名称\n\n\n无论何时，你都可以将鼠标移到这里查看详细语法", defaultFont)
         text.setPos(0, originY)
 
         self.view.setScene(self.scene)

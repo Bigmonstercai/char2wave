@@ -1,5 +1,4 @@
 # mysetup.py
 from distutils.core import setup
 import py2exe
-
-setup(console=["char2wave.py"])
+setup(windows=[{"script": "char2wave.py"}], options={"py2exe": {"includes": ["sip"]}})
